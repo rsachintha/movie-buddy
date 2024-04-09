@@ -1,6 +1,7 @@
 import { BASE_IMG_URL } from "@/utils/const";
 import Link from "next/link";
 import React, { useState } from "react";
+import MovieCardSkeleton from "./MovieCardSkeleton";
 
 interface movieCardPropsTypes {
   img: string;
@@ -14,8 +15,7 @@ const MovieCard = ({ img, id, title, releaseDate }: movieCardPropsTypes) => {
 
   return (
     <div className="group bg-primary h-[450px] md:h-[335px] w-full rounded-[10px] overflow-hidden">
-      {/* {!loaded && !error && <CardSkeleton />}
-      {error && <CardSkeleton error />} */}
+      {!loaded && !error && <MovieCardSkeleton />}
 
       <Link
         className={`${!loaded && error && "hidden"}`}
@@ -23,15 +23,19 @@ const MovieCard = ({ img, id, title, releaseDate }: movieCardPropsTypes) => {
       >
         <div className="relative">
           <img
-            className="object-cover h-[450px] md:h-[335px] w-full"
+            className={`object-cover h-[450px] md:h-[335px] w-full ${
+              loaded ? "" : "hidden"
+            }`}
             src={`${BASE_IMG_URL}${img}`}
             alt="movie poster"
             onLoad={() => setLoaded(true)}
             onError={() => setError(true)}
           />
-          <div className="absolute bg-primary w-full bottom-0 px-4 py-2 text-center transition-all duration-500 opacity-0 group-hover:opacity-100">
-            {title}
-            <p>{releaseDate}</p>
+          <div className="absolute bg-primary bg-opacity-60 w-full  h-[0%] bottom-0  transition-all ease-out-quad duration-300 group-hover:h-[100%] group-hover:flex group-hover:items-end group-hover:justify-center">
+            <div className="p-4 text-white">
+              <p className="text-[24px] font-medium">{title}</p>
+              <p>{releaseDate}</p>
+            </div>
           </div>
         </div>
       </Link>

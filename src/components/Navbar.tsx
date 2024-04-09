@@ -31,7 +31,7 @@ const Navbar = () => {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Search movies"
           />
-          <button className="text-white py-2 bg-lightPurple px-4 rounded transition ease duration-300 hover:bg-darkPurple">
+          <button className="text-white py-2 bg-lightPurple px-4 rounded transition ease-out duration-200 hover:bg-darkPurple">
             Search
           </button>
         </form>

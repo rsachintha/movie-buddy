@@ -3,7 +3,6 @@
 import MovieCard from "@/components/MovieCard";
 import { BASE_URL } from "@/utils/const";
 import axios from "axios";
-import { error } from "console";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -81,7 +80,7 @@ const Discover = () => {
       page = `page=${currentPage + 1}`;
     }
 
-    router.push(`discover/${discover}${page}`);
+    router.push(`discover/${discover}?${page}`);
   };
 
   return (
@@ -102,6 +101,27 @@ const Discover = () => {
           />
         ))}
       </div>
+
+      <div className="flex justify-center gap-16 py-6 pt-16">
+        <button
+          className={`bg-lightPurple p-2 px-8  rounded transition ease-out duration-200 hover:bg-darkPurple ${
+            currentPage === 1 && "hidden"
+          }`}
+          onClick={() => handlePageChange("prev")}
+        >
+          Prev
+        </button>
+        <button
+          className={`bg-lightPurple p-2 px-8 rounded transition ease-out duration-200 hover:bg-darkPurple ${
+            currentPage === totalPage && "hidden"
+          }`}
+          onClick={() => handlePageChange("next")}
+        >
+          Next
+        </button>
+      </div>
+
+      <div className="pb-20"></div>
     </main>
   );
 };

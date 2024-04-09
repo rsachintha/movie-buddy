@@ -20,7 +20,7 @@
   }
 
   .sidebarLink {
-    @apply text-textColor ml-4 cursor-pointer hover:text-lightPurple transition ease-in duration-300 w-fit;
+    @apply text-textColor ml-4 cursor-pointer hover:text-lightPurple transition ease-out duration-200 w-fit;
   }
 
   .sidebarActive {

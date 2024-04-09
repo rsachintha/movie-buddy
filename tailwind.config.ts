@@ -1,3 +1,4 @@
+import { nextui } from "@nextui-org/react";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -14,6 +15,9 @@ const config: Config = {
         textColor: "#646464",
         lightPurple: "#9F57F8",
         darkPurple: "#9038FF",
+      },
+      transitionTimingFunction: {
+        "out-quad": "cubic-bezier( 0.250,  0.460,  0.450,  0.940 )",
       },
     },
   },

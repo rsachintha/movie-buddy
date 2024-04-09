@@ -72,7 +72,7 @@ const MobileNavbar = ({
 
       {/* full screen navbar */}
       <div
-        className={`min-h-[100vh] max-h-[100vh] w-[100%] bg-primary fixed left-0 top-0 z-10 overflow-scroll ${
+        className={`min-h-[100vh] max-h-[100vh] w-[100%] bg-primary fixed left-0 top-0 z-10 overflow-scroll transition ease-out duration-300 ${
           isOpen ? "block" : "hidden"
         }`}
       >
